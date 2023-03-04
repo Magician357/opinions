@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Opinions</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel = "icon" href = "icons/favicon.ico" type = "image/x-icon">
+</head>
+
+<body>
+  <a href="javascript:history.back()">I am not ready</a></br></br>
+  <label for="search">Enter name: </label>
+  <input name="search" id="search" value="origin"></input></br>
+  <button onclick="redirect()">I am ready</button>
+  <script>
+    function redirect(){
+      let too = document.getElementById("search").value;
+      window.location.href="https://opinions.magic-man.repl.co/view.html?id="+too;
+    }
+    var array = ["origin","nothing","time","more","story","stand","poem","uniform","music","new"];
+    document.getElementById("search").value=array[Math.floor(Math.random() * array.length)]
+  </script>
+</body>
+
+</html>

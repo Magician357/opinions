@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Opinions</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel = "icon" href = "icons/favicon.ico" type = "image/x-icon">
+</head>
+
+<body>
+  <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  <a href="javascript:history.back()">Return</a>
+  <p id="text"></p>
+  <script>
+    function formatText(text){
+      var splitted=text.split("\n");
+      var current="";
+      var start;
+      var end;
+      for (var line of splitted){
+        start="<p>";
+        end="</p>";
+        if (line.startsWith("#")){
+          start="<h1>";
+          end="</h1>";
+        } else if (line.startsWith("_")){
+          start="<h2>";
+          end="</h2>";
+        } else if (line.startsWith("+")){
+          start="<h3>";
+          end="</h3>";
+        } else if (line.startsWith("-")){
+          start=" - ";
+        } else if (line.startsWith("/")) {
+          start="</br>"
+        } else {
+          line="*"+line;
+        }
+        current+=start+line.slice(1)+end;
+      }
+      return current;
+    }
+    function loadFile(filePath) {
+      var result = null;
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open("GET", filePath, false);
+      xmlhttp.send();
+      if (xmlhttp.status==200) {
+        result = xmlhttp.responseText;
+      }
+      return result;
+    }
+
+    function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+    
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const post=urlParams.get('id')
+    var text=loadFile("posts/"+post+".txt");
+    if (text === null) {
+      let whichone=getRandomInt(1,7);
+      text=`<img src="images/${whichone}.jpg" alt="It isn't real.">`
+    }
+    document.getElementById("text").innerHTML=formatText(text);
+    function toggleDarkMode() {
+      var element = document.body;
+      element.classList.toggle("dark-mode");
+    }
+  </script>
+</body>
+
+</html>
