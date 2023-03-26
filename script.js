@@ -100,7 +100,7 @@ function loadsidebar() {
   for (const post of newest) {
     sidebar.innerHTML=`<a href=\"javascript:void(0)\" onclick=\"openText('${post}')\">${post}</a>`+sidebar.innerHTML;
   }
-  sidebar.innerHTML+="<a class='differ' href='/advanced.html'>or try something else</a>"
+  sidebar.innerHTML+="<a class='differ' href='https://magician357.github.io/opinions/advanced.html'>or try something else</a>"
 }
 
 testHello();
