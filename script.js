@@ -95,7 +95,7 @@ async function smoothText(url){
 }
 
 function loadsidebar() {
-  var sidebar = document.getElementById("mySidebar");
+  var sidebar = document.getElementById("sidebar");
   sidebar.innerHTML=`<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>`;
   for (const post of newest) {
     sidebar.innerHTML=`<a href=\"javascript:void(0)\" onclick=\"openText('${post}')\">${post}</a>`+sidebar.innerHTML;
@@ -108,13 +108,13 @@ loadsidebar();
 
 function openNav() {
   reRandom();
-  document.getElementById("mySidebar").style.width = "100%";
+  document.getElementById("sidebar").style.width = "100%";
   document.getElementById("main").style.marginLeft = "50vw";
 }
 
 /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
 function closeNav() {
-  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("sidebar").style.width = "0";
   document.getElementById("main").style.marginLeft = "0";
 }
 
