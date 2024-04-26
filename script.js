@@ -33,10 +33,6 @@ function openText(post){
   closeNav();
 }
 
-function testHello(){
-  openText("origin");
-}
-
 function formatText(text){
   var splitted=text.split("\n");
   var current="";
@@ -103,7 +99,7 @@ function loadsidebar() {
   sidebar.innerHTML+="<a class='differ' href='https://magician357.github.io/opinions/advanced.html'>or try something else</a>"
 }
 
-testHello();
+openText("origin");
 loadsidebar();
 
 function openNav() {
