@@ -4,7 +4,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-var all = ["origin","nothing","time","more","story","stand","poem","uniform","music","new","length","combine","lost"]; /* ALSO UPDATE ADVANCED.HTML */
+var all = ["origin","nothing","time","more","story","stand","poem","uniform","music","new","length","combine","lost","death","torture","when"]; /* ALSO UPDATE ADVANCED.HTML */
 all.push("final");
 var start=getRandomInt(0,all.length-5);
 var newest = all.slice(start,start+4);
